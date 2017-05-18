@@ -43,4 +43,10 @@ public class BombController : MonoBehaviour {
 			Instantiate (explosion, transform.position -5*i*Vector3.forward, Quaternion.identity);
 		}
 	}
+
+	void OnTriggerExit(Collider other){
+		if (other.gameObject.tag == "Player") {
+			GetComponent<Collider>().isTrigger = false;
+		}
+	}
 }
