@@ -4,7 +4,9 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	public int moveSpeed;
+	public bool isAlive = true;
 	public GameObject player;
+	public GameObject deathParticles;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +15,10 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (isAlive == false) {
+			Instantiate (deathParticles, transform.position, Quaternion.identity);
+			Destroy(gameObject);
+		}
 		if (player != null) {
 			transform.LookAt(player.transform.position);
 			transform.position += transform.forward * moveSpeed * Time.deltaTime;

@@ -42,6 +42,49 @@ public class BombController : MonoBehaviour {
 		for (int i= 0; i < expLimit; i++) {
 			Instantiate (explosion, transform.position -5*i*Vector3.forward, Quaternion.identity);
 		}
+
+		//Raycast to find character to kill
+		
+		if (Physics.SphereCast(transform.position, 5f, Vector3.right, out hit)) {
+			if(hit.distance <= 5){
+				if(hit.transform.gameObject.tag == "Player"){
+					hit.transform.gameObject.GetComponent<PlayerController>().isAlive = false;
+				}
+				if(hit.transform.gameObject.tag == "Enemy"){
+					hit.transform.gameObject.GetComponent<EnemyController>().isAlive = false;
+				}
+			}
+		}
+		if (Physics.SphereCast(transform.position, 5f, -Vector3.right, out hit)) {
+			if(hit.distance <= 5){
+				if(hit.transform.gameObject.tag == "Player"){
+					hit.transform.gameObject.GetComponent<PlayerController>().isAlive = false;
+				}
+				if(hit.transform.gameObject.tag == "Enemy"){
+					hit.transform.gameObject.GetComponent<EnemyController>().isAlive = false;
+				}
+			}
+		}
+		if (Physics.SphereCast(transform.position, 5f, Vector3.forward, out hit)) {
+			if(hit.distance <= 5){
+				if(hit.transform.gameObject.tag == "Player"){
+					hit.transform.gameObject.GetComponent<PlayerController>().isAlive = false;
+				}
+				if(hit.transform.gameObject.tag == "Enemy"){
+					hit.transform.gameObject.GetComponent<EnemyController>().isAlive = false;
+				}
+			}
+		}
+		if (Physics.SphereCast(transform.position, 15f, -Vector3.forward, out hit)) {
+			if(hit.distance <= 5){
+				if(hit.transform.gameObject.tag == "Player"){
+					hit.transform.gameObject.GetComponent<PlayerController>().isAlive = false;
+				}
+				if(hit.transform.gameObject.tag == "Enemy"){
+					hit.transform.gameObject.GetComponent<EnemyController>().isAlive = false;
+				}
+			}
+		}
 	}
 
 	void OnTriggerExit(Collider other){
