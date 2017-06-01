@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 	public int moveSpeed;
+	public int radius = 35;
 	public bool isAlive = true;
 	public GameObject player;
 	public GameObject deathParticles;
@@ -19,7 +20,7 @@ public class EnemyController : MonoBehaviour {
 			Instantiate (deathParticles, transform.position, Quaternion.identity);
 			Destroy(gameObject);
 		}
-		if (player != null) {
+		if (player != null && (Vector3.Distance(player.transform.position, transform.position) < radius)) {
 			transform.LookAt(player.transform.position);
 			transform.position += transform.forward * moveSpeed * Time.deltaTime;
 		}
