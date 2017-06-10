@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour {
 			//Check if enemy is stuck walking into a wall
 			RaycastHit hit;
 			if(Physics.Raycast (transform.position, transform.forward, out hit)){
-				if(hit.distance <= 5 && (hit.transform.gameObject.tag == "Block" || hit.transform.gameObject.tag == "Wall")){
+				if(hit.distance <= 6 && (hit.transform.gameObject.tag == "Block" || hit.transform.gameObject.tag == "Wall" || hit.transform.gameObject.tag == "Enemy")){
 					transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, randomSign()*90, 0));
 				}
 			}
