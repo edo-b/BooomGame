@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameOverCanvas.SetActive (false);
+
 	}
 
 	// Update is called once per frame
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour {
 			portal.SetActive(true);
 			portal.transform.Rotate(Vector3.right * speed * Time.deltaTime);
 			timeText.text = currentTime.ToString("0.0");
+
 		}
 	}
 }

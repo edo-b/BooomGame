@@ -45,8 +45,8 @@ public class BombController : MonoBehaviour {
 
 		//Raycast to find character to kill
 		
-		if (Physics.SphereCast(transform.position, 15f, Vector3.right, out hit)) {
-			if(hit.distance <= 5){
+		if (Physics.Raycast(transform.position, Vector3.right, out hit)) {
+			if(hit.distance <= 20){
 				if(hit.transform.gameObject.tag == "Player"){
 					hit.transform.gameObject.GetComponent<PlayerController>().isAlive = false;
 				}
@@ -55,8 +55,8 @@ public class BombController : MonoBehaviour {
 				}
 			}
 		}
-		if (Physics.SphereCast(transform.position, 15f, -Vector3.right, out hit)) {
-			if(hit.distance <= 5){
+		if (Physics.Raycast(transform.position, -Vector3.right, out hit)) {
+			if(hit.distance <= 20){
 				if(hit.transform.gameObject.tag == "Player"){
 					hit.transform.gameObject.GetComponent<PlayerController>().isAlive = false;
 				}
@@ -65,8 +65,8 @@ public class BombController : MonoBehaviour {
 				}
 			}
 		}
-		if (Physics.SphereCast(transform.position, 15f, Vector3.forward, out hit)) {
-			if(hit.distance <= 5){
+		if (Physics.Raycast(transform.position, Vector3.forward, out hit)) {
+			if(hit.distance <= 20){
 				if(hit.transform.gameObject.tag == "Player"){
 					hit.transform.gameObject.GetComponent<PlayerController>().isAlive = false;
 				}
@@ -75,8 +75,8 @@ public class BombController : MonoBehaviour {
 				}
 			}
 		}
-		if (Physics.SphereCast(transform.position, 15f, -Vector3.forward, out hit)) {
-			if(hit.distance <= 5){
+		if (Physics.Raycast(transform.position, -Vector3.forward, out hit)) {
+			if(hit.distance <= 20){
 				if(hit.transform.gameObject.tag == "Player"){
 					hit.transform.gameObject.GetComponent<PlayerController>().isAlive = false;
 				}

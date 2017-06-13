@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 		transform.position = transform.position + new Vector3 (moveHorizontal, 0, moveVertical);
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			Instantiate(bomb, transform.position, Quaternion.identity);
+			Instantiate(bomb, new Vector3(transform.position.x, 2.5f, transform.position.z), Quaternion.identity);
 		}
 	}
 

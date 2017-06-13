@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
 		if (isAlive == false) {
 			Instantiate (deathParticles, transform.position, Quaternion.identity);
-			Instantiate (coin, transform.position, Quaternion.Euler(new Vector3(0, 0, 90)));
+			Instantiate (coin, new Vector3(transform.position.x, 2.5f, transform.position.z), Quaternion.Euler(new Vector3(0, 0, 90)));
 			Destroy(gameObject);
 		}
 		if (player != null && (Vector3.Distance (player.transform.position, transform.position) < radius)) {
