@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour {
 
 	public int moveSpeed;
 	public int radius = 35;
+	public string levelLoad;
 	public bool isAlive = true;
 	public GameObject player;
 	public GameObject deathParticles;
@@ -61,9 +62,14 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
+	public void LoadLevel () {
+		Application.LoadLevel (levelLoad);
+	}
+
 	void OnCollisionEnter(Collision other) {
 		if (other.gameObject.tag == "Player") {
 			other.gameObject.GetComponent<PlayerController> ().isAlive = false;
+			Invoke ("LoadLevel", 2);
 		}
 		/*else if (other.gameObject.tag == "Wall" || other.gameObject.tag == "Block") {
 			if(!isPlayerInRadius){

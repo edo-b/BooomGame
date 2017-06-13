@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		var moveHorizontal = speed * Time.deltaTime * Input.GetAxis ("Horizontal");
 		var moveVertical = speed * Time.deltaTime * Input.GetAxis ("Vertical");
+
 		if (moveHorizontal > 0) {
 			transform.rotation = Quaternion.Euler(0, 90, 0);
 		}
